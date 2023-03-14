@@ -10,7 +10,7 @@ export default function NavBar({user, setUser}) {
     }
     return (
         <nav className="Nav">
-             <span>Welcome {user && user.namecharAt(0).toUpperCase()}</span>
+             <span>Welcome {user && user.name.charAt(0).toUpperCase()}</span>
             <Link to="/home">Home</Link>
             {/* &nbsp; | &nbsp; */}
             <Link to="/income">Income Tracker</Link>
