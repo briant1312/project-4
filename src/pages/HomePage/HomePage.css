@@ -5,6 +5,7 @@
 .recent-expenses-container {
    margin-top: 3rem;
    margin-left: -5rem;
+   text-align: center;
 }
 
 .home-page .expense-item {
