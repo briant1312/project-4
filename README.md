@@ -10,6 +10,10 @@ This app is used to have a convenient place to keep track of all of your bills a
 ![Income Page](images/Income.png)
 ![Expense Page](images/Expense.png)
 
+## ERD
+
+![ERD](images/ERD.png)
+
 ## Technologies Used
 
 - HTML
