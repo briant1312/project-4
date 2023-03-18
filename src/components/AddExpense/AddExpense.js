@@ -19,13 +19,16 @@ export default function AddExpense({setExpenses}) {
     }
 
     async function handleCreateExpense(event) {
+        const date = new Date(newExpense.date)
+        date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
+
         event.preventDefault()
         //Add to the DB
         const expense = {
             name: newExpense.name,
             category: newExpense.category,
             amount: newExpense.amount,
-            date: new Date((new Date(newExpense.date).getTime() + 86400000)),
+            date: date,
         }
         const expenses = await expenseAPI.create(expense)
     

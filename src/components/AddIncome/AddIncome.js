@@ -18,14 +18,15 @@ export default function AddIncome({setIncome}) {
     }
 
     async function handleCreateIncome(event) {
+        const date = new Date(newIncome.date)
+        date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
         event.preventDefault()
         //Add to the DB
         const income = {
             category: newIncome.category,
             amount: newIncome.amount,
-            date: new Date((new Date(newIncome.date).getTime() + 86400000))
+            date: date
         }
-        console.log(income)
         const incomes = await incomeAPI.create(income)
     
 
