@@ -25,7 +25,7 @@ export default function AuthPage({ setUser }) {
                 </>
                 : 
                 <>
-                    <p>First time ordering? Sign up <a className="authpage-link" onClick={handleSwitchForms} href="">here</a></p>
+                    <p>New here? Sign up <a className="authpage-link" onClick={handleSwitchForms} href="">here</a></p>
                 </>
             }
         </div>
