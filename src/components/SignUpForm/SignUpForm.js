@@ -71,8 +71,10 @@ export default class SignUpForm extends Component{
                         name="password"
                         value={this.state.password}
                         onChange={this.handleChange}
+                        min={5}
                         required 
                     />
+                    {this.state.password.length > 0 && this.state.password.length < 5 && <p>password must be at least 5 characters</p>}
                     <label>Confirm</label>
                     <input 
                         type="password"
