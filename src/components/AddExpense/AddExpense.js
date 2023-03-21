@@ -46,47 +46,47 @@ export default function AddExpense({setExpenses}) {
     }
 
     return(
-        <form className="add-expense-form">
-            <label>Date</label>
-            <input 
-                className="add-date"
-                onChange={handleChange}
-                type='date'
-                name='date'
-                placeholder='date'
-                value={newExpense.date}
-            />
-            <div className="add-expense-form-desc">
-            <label>Name</label>
-            <input 
-                onChange={handleChange} 
-                type='text'
-                name='name'
-                placeholder="name"
-                value={newExpense.name} 
-             />
-            <label>Category</label>
-            <select onChange={handleChange} value={newExpense.category} name='category'>
-                <option value='food'>Food</option>
-                <option value='gas'>Gas</option>
-                <option value='bills'>Bills</option>
-                <option value='vehicle'>Vehicle</option>
-                <option value='entertainment'>Entertainment</option>
-                <option value='travel'>Travel</option>
-            </select>
-            <label>Amount</label>
-            <input 
-                onChange={handleChange}
-                type='number'
-                name='amount'
-                placeholder='amount'
-                value={newExpense.amount}    
-            />
-            <button 
-            onClick={handleCreateExpense}>
-                Add Expense
-                </button>
+        <div className="add-expense-form-container">
+            <h2 className="title">Add Expense</h2>
+            <form className="add-expense-form">
+                <input 
+                    className="add-date"
+                    onChange={handleChange}
+                    type='date'
+                    name='date'
+                    placeholder='date'
+                    value={newExpense.date}
+                />
+                <div className="add-expense-form-desc">
+                    <label>Category</label>
+                    <select onChange={handleChange} value={newExpense.category} name='category'>
+                        <option value='food'>Food</option>
+                        <option value='gas'>Gas</option>
+                        <option value='bills'>Bills</option>
+                        <option value='vehicle'>Vehicle</option>
+                        <option value='entertainment'>Entertainment</option>
+                        <option value='travel'>Travel</option>
+                    </select>
+                    <input 
+                        onChange={handleChange} 
+                        type='text'
+                        name='name'
+                        placeholder="name"
+                        value={newExpense.name} 
+                    />
+                    <input 
+                        onChange={handleChange}
+                        type='number'
+                        name='amount'
+                        placeholder='amount'
+                        value={newExpense.amount}    
+                    />
+                    <button 
+                        onClick={handleCreateExpense}>
+                        Add Expense
+                    </button>
                 </div>
-        </form>
+            </form>
+        </div>
     )
 }

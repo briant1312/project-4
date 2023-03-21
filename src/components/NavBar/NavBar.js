@@ -12,14 +12,9 @@ export default function NavBar({user, setUser}) {
         <nav className="Nav">
              <span>Welcome, {user && (user.name.charAt(0).toUpperCase() + user.name.slice(1))}</span>
             <Link to="/home">Home</Link>
-            {/* &nbsp; | &nbsp; */}
-            <Link to="/income">Income Tracker</Link>
-            {/* &nbsp; */}
-            <Link to="/expenses">Expense Tracker</Link>
-            {/* &nbsp; */}
-            
-            {/* &nbsp;&nbsp; */}
-            <Link to="" onClick={handleLogOut}>Log Out</Link>
+            <Link to="/income">Income</Link>
+            <Link to="/expenses">Expenses</Link>
+            <Link to="/" onClick={handleLogOut}>Log Out</Link>
         </nav>
     )
 }

@@ -4,9 +4,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin:auto;
-    
+    font-size: 1.4rem;    
 }
+
+.auth-container input {
+    font-size: 1.1rem;
+}
+
 .auth-container p{
- margin: auto;
+    margin: auto;
 }

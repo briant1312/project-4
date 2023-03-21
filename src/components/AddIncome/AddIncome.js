@@ -42,37 +42,39 @@ export default function AddIncome({setIncome}) {
     }
 
     return(
-        <form className="add-income-form">
-            <label>Date</label>
-            <input 
-                className="add-date"
-                onChange={handleChange}
-                type='date'
-                name='date'
-                placeholder='date'
-                value={newIncome.date}
-            />
-            <div className="add-income-form-desc">
-            <label>Category</label>
-            <select onChange={handleChange} value={newIncome.category} name='category'>
-                <option value='job'>Job</option>
-                <option value='investments'>Investments</option>
-                <option value='misc'>Misc</option>
-            </select>
-            <label>Amount</label>
-            <input 
-                onChange={handleChange}
-                type='number'
-                name='amount'
-                placeholder='amount'
-                value={newIncome.amount}    
-            />
-            
-            
-            <button 
-            onClick={handleCreateIncome}>
-                Add Income
-                </button></div>
-        </form>
+        <div className="form-container">
+            <h2 className="title">Add Income</h2>
+            <form className="add-income-form">
+                <input 
+                    className="add-date"
+                    onChange={handleChange}
+                    type='date'
+                    name='date'
+                    placeholder='date'
+                    value={newIncome.date}
+                />
+                <div className="add-income-form-desc">
+                    <label>Category</label>
+                    <select onChange={handleChange} value={newIncome.category} name='category'>
+                        <option value='job'>Job</option>
+                        <option value='investments'>Investments</option>
+                        <option value='misc'>Misc</option>
+                    </select>
+                    <input 
+                        onChange={handleChange}
+                        type='number'
+                        name='amount'
+                        placeholder='amount'
+                        value={newIncome.amount}    
+                    />
+                    
+                    
+                    <button 
+                        onClick={handleCreateIncome}>
+                        Add Income
+                    </button>
+                </div>
+            </form>
+        </div>
     )
 }

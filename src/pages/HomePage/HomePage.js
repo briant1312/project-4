@@ -1,16 +1,17 @@
-import { useState } from "react"
 import PieChart from "../../components/PieChart/PieChart"
 import LineGraph from "../../components/LineGraph/LineGraph"
 import '../../components/ExpenseItem/ExpenseItem.css'
 import './HomePage.css'
+import NavBar from '../../components/NavBar/NavBar'
 
-function HomePage({userExpenses, setExpenses, income}) {
+function HomePage({userExpenses, income, user, setUser}) {
 
   const sumVar = userExpenses.slice(0,5)
 
   return (
     
     <div className="home-page">
+      <NavBar user={user} setUser={setUser}/>
       <div className="graph-container">
         <div className="chia">
           <PieChart expenses={userExpenses} className={'pie'}/>

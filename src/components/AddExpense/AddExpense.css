@@ -1,31 +1,30 @@
 .add-expense-form{
     display: flex;
     flex-direction: column;
-    margin: 20vh 8vw 20vh 3vw;
-    padding:3vh 3vw;
-    height: 50vh;
     background-color: rgba(0,184,255, .6);
     border-radius: 10px;
     box-shadow: 4px 4px 6px rgba(0,0,0,.4);
+    padding: 2rem;
+    padding-bottom: 2rem;
+    height: fit-content;
+    margin: 6rem 2rem 5rem 2rem;
 }
 
 .add-expense-form input,
 .add-expense-form select {
     padding: .3rem;
     border-radius: 5px;
+    margin-bottom: 1rem;
 }
 
 .add-expense-form-desc{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 15vw;
     border-radius: 10px;
     border: 2px solid rgb(41, 50, 65);
-    padding: 2vh 2vw;
-}
-.add-date{
-    margin: 0 auto 2vh 2vw;
+    padding: 2rem;
+    margin-top: 1rem;
 }
 
 .add-expense-form button {

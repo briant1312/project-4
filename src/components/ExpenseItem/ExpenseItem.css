@@ -1,40 +1,39 @@
 .expense-item{
-    margin-top: 2vh;
     background-color: rgba(0,184,255, .6);
     border-radius: 10px;
     box-shadow: 4px 4px 6px rgba(0,0,0,.4);
-    padding-bottom: 1rem;
+    padding: 0 1rem 1rem 1rem;
+    margin: .5rem 2rem;
+    position: relative;
 }
-.expense-item p{
-    margin-left: 2vw;
+.date-and-button p{
+    padding-top: .5rem;
+    margin-left: .5rem;
 }
 .expense-item-description{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin: 1vh 2vw;
+    justify-content: space-around;
+    gap: 1rem;
     border-radius: 5px;
     background-color: transparent;
     border: 2px solid rgb(41, 50, 65);
+    margin-bottom: .5rem;
 }
 
 .category-title {
-    background-color: rgba(0,184,255, .6);
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-around;
+    color: rgba(45, 0, 247, 1);
     border: none;
-    box-shadow: 4px 4px 6px rgba(0,0,0,.4);
 }
 
 .flex-item{
-    width:15vw;
     text-align: center;
 }
-.date-and-button{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+
 .date-and-button button{
-    margin-right: 2vw;
     align-self: center;
 }
 

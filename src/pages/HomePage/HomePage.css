@@ -1,13 +1,12 @@
-.home-page{
-   display: flex;
+.home-page {
+    display: flex;
+}
+
+.home-page h3 {
+    text-align: center;
 }
 
 .recent-expenses-container {
-   margin-top: 3rem;
-   margin-left: -5rem;
-   text-align: center;
-}
-
-.home-page .expense-item {
-   width: 25vw;
+    margin-top: 4rem;
+    flex-grow: 1;
 }

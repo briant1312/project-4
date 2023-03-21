@@ -1,33 +1,23 @@
-.income-page{
+.income-page {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 70vw;
 }
 
-@media screen and (max-width: 1000px){
-.income-page{
-    flex-direction: column;
-    justify-content: flex-start;
+.income-list {
+    flex-grow: 2;
+    margin-bottom: 5rem;
+    margin-inline: 2rem;
 }
-.income-list{
-    width: 70vw;
-    margin: 2vh auto;
+
+.form-container {
+    flex-grow: 1;
 }
-.Nav{
-    height: 140vh;
-    width: fit-content;
-    margin-bottom: 2vh;
-}
-.add-income-form{
-    padding: auto;
+
+.title {
     text-align: center;
-    margin: 2vh 2vw;
+    margin-top: 4rem;
+    margin-bottom: 0;
 }
-.add-income-form-desc{
-    margin:  auto;
-}
-.add-date{
-    margin: auto;
-}
+
+.income-page .Nav {
+    margin-top: 6rem;
 }

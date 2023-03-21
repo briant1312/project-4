@@ -13,7 +13,7 @@ export default function ExpenseList({expenses, setExpenses}) {
     return(
         <div className="expense-list">
             <h2 className="title">Expenses</h2>
-            <div className="expense-item-description category-title">
+            <div className="category-title">
             <p className="flex-item">Name</p>
             <p className="flex-item">Category</p>
             <p className="flex-item">Amount</p>

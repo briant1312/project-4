@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import { Routes, Route, Navigate } from "react-router-dom"
 import './App.css';
 import AuthPage from "../AuthPage/AuthPage";
-import NavBar from "../../components/NavBar/NavBar";
 import { getUser } from "../../utilities/users-service"
 import HomePage from "../HomePage/HomePage";
 import IncomePage from "../IncomePage/IncomePage";
@@ -29,21 +28,29 @@ function App() {
     <main className="App">
       { user ? (
         <div className="app-page">
-          <NavBar setUser={setUser} user={user}/>
           <Routes>
-            <Route path="/home" element={<HomePage 
-                                setExpenses={setExpenses} 
-                                userExpenses={expenses}
-                                income={income}/>} 
-                                />
-            <Route path="/income" element={<IncomePage 
-                                  setIncome={setIncome} 
-                                  userIncome={income}/>} 
-                                  />
-            <Route path="/expenses" element={<ExpensePage 
-                                    setExpenses={setExpenses} 
-                                    userExpenses={expenses}/>} 
-                                    />
+            <Route path="/home" 
+                    element={<HomePage 
+                    setExpenses={setExpenses} 
+                    userExpenses={expenses}
+                    income={income}
+                    user={user}
+                    setUser={setUser}/>} 
+            />
+            <Route path="/income" 
+                  element={<IncomePage 
+                  setIncome={setIncome} 
+                  userIncome={income}
+                  user={user}
+                  setUser={setUser}/>} 
+            />
+            <Route path="/expenses" 
+                    element={<ExpensePage 
+                    setExpenses={setExpenses} 
+                    userExpenses={expenses}
+                    user={user}
+                    setUser={setUser}/>} 
+            />
             <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
         </div> 

@@ -1,55 +1,17 @@
-.expense-page{
+.expense-page {
     display: flex;
-    flex-direction: row;
-    width: 70vw;
 }
-@media screen and (max-width: 1000px){
-    .expense-page{
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    .expense-list{
-        width: 70vw;
-        margin: 2vh auto;
-    }
-    .Nav{
-        height: 140vh;
-        width: fit-content;
-        margin-bottom: 2vh;
-    }
-    .add-expense-form{
-        padding: auto;
-        text-align: center;
-        margin: 2vh 2vw;
-    }
-    .add-expense-form-desc{
-        margin:  auto;
-    }
-    .add-date{
-        margin: auto;
-    }
-    .income-page{
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    .income-list{
-        width: 70vw;
-        margin: 2vh auto;
-    }
-    .Nav{
-        height: 140vh;
-        width: fit-content;
-        margin-bottom: 2vh;
-    }
-    .add-income-form{
-        padding: auto;
-        text-align: center;
-        margin: 2vh 2vw;
-    }
-    .add-income-form-desc{
-        margin:  auto;
-    }
-    .add-date{
-        margin: auto;
-    }
+
+.expense-list {
+    flex-grow: 2;
+    margin-bottom: 5rem;
+    margin-inline: 2rem;
+}
+
+.add-expense-form-container {
+    flex-grow: 1;
+}
+
+.expense-page .Nav {
+    margin-top: 6rem;
 }
