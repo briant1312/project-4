@@ -11,6 +11,7 @@ function App() {
   const [user, setUser] = useState(getUser())
   const [expenses, setExpenses] = useState([])
   const [income, setIncome] = useState([])
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const user = getUser()
@@ -23,14 +24,26 @@ function App() {
     }
   }, [user])
 
+  function toggleMenu() {
+    setVisible(!visible)
+  }
+
 
   return (
     <main className="App">
       { user ? (
         <div className="app-page">
+          <div onClick={toggleMenu} className="menu-icon">
+            {visible ? 
+            <span className="closed">x</span> :
+            <span className="open"></span> 
+            }
+          </div>
           <Routes>
             <Route path="/home" 
                     element={<HomePage 
+                    visible={visible}
+                    setVisible={setVisible}
                     setExpenses={setExpenses} 
                     userExpenses={expenses}
                     income={income}
@@ -38,7 +51,9 @@ function App() {
                     setUser={setUser}/>} 
             />
             <Route path="/income" 
-                  element={<IncomePage 
+                  element={<IncomePage
+                  visible={visible}
+                  setVisible={setVisible}
                   setIncome={setIncome} 
                   userIncome={income}
                   user={user}
@@ -46,6 +61,8 @@ function App() {
             />
             <Route path="/expenses" 
                     element={<ExpensePage 
+                    visible={visible}
+                    setVisible={setVisible}
                     setExpenses={setExpenses} 
                     userExpenses={expenses}
                     user={user}

@@ -3,10 +3,10 @@ import IncomeList from '../../components/IncomeList/IncomeList'
 import './IncomePage.css'
 import NavBar from '../../components/NavBar/NavBar'
 
-export default function IncomePage({userIncome, setIncome, user, setUser}) {
+export default function IncomePage({userIncome, setIncome, user, setUser, visible, setVisible}) {
     return(
         <div className='income-page'>
-            <NavBar user={user} setUser={setUser}/>
+            <NavBar setVisible={setVisible} visible={visible} user={user} setUser={setUser}/>
             <IncomeList setIncome={setIncome} incomeArray={userIncome}/>
             <AddIncome setIncome={setIncome} />
         </div>

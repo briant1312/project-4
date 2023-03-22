@@ -3,11 +3,11 @@ import AddExpense from '../../components/AddExpense/AddExpense'
 import './ExpensePage.css'
 import NavBar from '../../components/NavBar/NavBar'
 
-export default function ExpensePage({userExpenses, setExpenses, user, setUser}) {
+export default function ExpensePage({userExpenses, setExpenses, user, setUser, visible, setVisible}) {
 
     return(
         <div className='expense-page'>
-            <NavBar user={user} setUser={setUser}/>
+            <NavBar setVisible={setVisible} visible={visible} user={user} setUser={setUser}/>
             <ExpenseList setExpenses={setExpenses} expenses={userExpenses}/> 
             <AddExpense setExpenses={setExpenses}/>
         </div>

@@ -15,3 +15,96 @@
 .expense-page .Nav {
     margin-top: 6rem;
 }
+
+@media screen and (max-width: 81.25em) {
+    
+    .expense-page {
+        display: grid;
+        grid-template-areas:
+        'side form'
+        'side list';
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .expense-page .Nav {
+        grid-area: side;
+    } 
+
+    .expense-page .add-expense-form {
+        grid-area: form;
+        margin: 0 4rem;
+        padding: 1rem;
+    }
+
+    .expense-page .add-expense-form-desc {
+        padding: 1rem;
+    }
+
+    .expense-page .add-expense-form input,
+    .expense-page .add-expense-form select {
+        margin-bottom: .4rem;
+    }
+
+    .expense-page .add-expense-form button {
+        margin-top: 0.5rem;
+    }
+
+    .add-expense-form-container {
+        margin-top: 4rem;
+    }
+
+    .title {
+        margin-top: 1rem;
+    }
+
+    .expense-list {
+        grid-area: list;
+    }
+}
+
+@media screen and (max-width: 56.25em) {
+    .menu-icon {
+        display: block
+    }
+
+    .expense-page .Nav {
+        margin-top: 4rem;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 3rem;
+        left: 1rem;
+        padding-bottom: 10rem;
+        background-color: rgba(0,184,255, 1);
+        transform: translateX(-15rem);
+        transition: all .5s;
+        z-index: 10;
+    }
+
+    .expense-page .Nav.menu-visible {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(0);
+    }
+
+    .expense-page {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (max-width: 31.25em) {
+
+    .expense-page .add-expense-form {
+        width: 90%;
+        margin: 1rem auto;
+    }
+
+    .expense-list {
+        margin-inline: 0;
+    }
+
+    .expense-page .expense-item {
+        margin: .5rem 1rem;
+    }
+}

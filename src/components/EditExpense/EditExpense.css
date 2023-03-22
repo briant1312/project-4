@@ -1,0 +1,64 @@
+
+.Form{
+    display: flex;
+    flex-direction: column;
+}
+
+.Form .edit-date{
+    margin: 0 auto 2vh 2vw;
+    border-radius: 5px;
+    color: white;
+    border: 2px solid rgb(238, 108, 77);
+    background-color: rgb(61, 90, 128);
+    padding: .1rem;
+}
+
+.edit-buttons{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    gap: 3rem;
+    border-radius: 5px;
+    height: fit-content;
+}
+.edit-form-description{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2vw;
+    border-radius: 5px;
+    border: 2px solid rgb(152, 193, 217);
+    background-color: rgb(61, 90, 128)
+}
+.edit-form-description select{
+    max-width: 4rem;
+    margin:2vh 3vw;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    border: 2px solid rgb(238, 108, 77);
+    background-color: rgb(61, 90, 128);
+    padding: .1rem;
+}
+.edit-form-description input{
+    max-width: 4rem;
+    text-align: center;
+    margin: 2vh ;
+    border-radius: 5px;
+    color: white;
+    border: 2px solid rgb(238, 108, 77);
+    background-color: rgb(61, 90, 128);
+}
+.edit-buttons button{
+    color: white;
+    border: 2px solid rgb(238, 108, 77);
+    background-color: rgb(61, 90, 128);
+    border-radius: 10px;
+    padding: .4rem .8rem;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.edit-buttons button:hover {
+    background-color: rgb(238, 108, 77);
+    border: 2px solid rgb(61, 90, 128);
+}

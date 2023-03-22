@@ -10,3 +10,124 @@
     margin-top: 4rem;
     flex-grow: 1;
 }
+
+@media screen and (max-width: 81.25em) {
+
+    .home-page {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    .recent-expenses-container {
+      max-width: 70%;
+      margin: 0 auto 5rem auto;
+    }
+  
+    .home-page .line {
+      width: 55vw;
+      height: auto;
+    }
+  
+    .home-page .pie {
+      height: 45vh;
+    }
+  
+    .graph-container {
+      margin-right: 3rem;
+    }
+}
+
+@media screen and (max-width: 56.25em) {
+
+    .menu-icon {
+        display: block
+    }
+
+    .home-page .Nav {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 3rem;
+        left: 1rem;
+        padding-bottom: 10rem;
+        background-color: rgba(0,184,255, 1);
+        transform: translateX(-15rem);
+        transition: all .5s;
+    }
+
+    .home-page .Nav.menu-visible {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(0);
+    }
+
+    .home-page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-page .line {
+        margin-bottom: 2rem;
+        margin-inline: auto;
+        width: 30rem;
+    }
+
+    .home-page .pie {
+        width: 40rem;
+    }
+
+    .home-page {
+        width: 100%;
+    }
+
+    .graph-container {
+        margin-right: 0;
+    }
+
+    .recent-expenses-container {
+        width: 90%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 40.63em) {
+
+    .home-page .line {
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width: 33.12em) {
+
+    html {
+        font-size: 90%;
+    }
+
+    .home-page .line {
+        margin-top: 20rem;
+        width: 30rem;
+    }
+
+    .home-page .pie {
+        width: 30rem;
+    }
+
+    .home-page .chia {
+        margin-left: 3rem;
+    }
+}
+
+@media screen and (max-width: 25.38em) {
+
+    .home-page .line {
+        width: 25rem;
+    }
+
+    .home-page .pie {
+        width: 20rem;
+    }
+
+    .home-page .chia {
+        margin-left: 1rem;
+    }
+}
