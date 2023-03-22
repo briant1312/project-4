@@ -116,12 +116,16 @@
     .home-page .chia {
         margin-left: 3rem;
     }
+
+    .home-page .expense-item {
+        margin-inline: 0;
+    }
 }
 
 @media screen and (max-width: 25.38em) {
 
     .home-page .line {
-        width: 25rem;
+        width: 23rem;
     }
 
     .home-page .pie {
