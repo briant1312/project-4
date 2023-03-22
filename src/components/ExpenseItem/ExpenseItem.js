@@ -12,18 +12,21 @@ export default function ExpenseItem({expense, setExpenses}) {
     const expenseDate = new Date(expense.date)
 
     return(
-        <div className="expense-item" >
-            <div className="date-and-button" >
-            <p>{expenseDate.toLocaleDateString()}</p>
-            <span className="edit-button" onClick={handleClick}>✎</span>
+        <>
+            <div className="expense-item" >
+                <div className="date-and-button" >
+                <p>{expenseDate.toLocaleDateString()}</p>
+                <span className="edit-button" onClick={handleClick}>✎</span>
+                </div>
+                <div className="expense-item-description">
+                <p className="flex-item">{expense.name}</p>
+                <p className="flex-item">{expense.category}</p>
+                <p className="flex-item">${expense.amount}</p>
+                </div>
+                
             </div>
-            <div className="expense-item-description">
-            <p className="flex-item">{expense.name}</p>
-            <p className="flex-item">{expense.category}</p>
-            <p className="flex-item">${expense.amount}</p>
-            </div>
-            
-            {visible && <EditExpense expense={expense} setExpenses={setExpenses} setVisible={setVisible}/>}
-        </div>
+            <div className={visible ? 'edit-background edit-background-visible' : 'edit-background'}></div>
+            <EditExpense visible={visible} expense={expense} setExpenses={setExpenses} setVisible={setVisible}/>
+        </>
     )
 }

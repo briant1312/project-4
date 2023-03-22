@@ -12,14 +12,17 @@ export default function IncomeItem({income, setIncome}) {
     const incomeDate = new Date(income.date)
     
     return(
-        <div className="income-item">
-            <div className="income-date-button">
-            <p>{incomeDate.toLocaleDateString()}</p>
-            <span className="edit-button" onClick={handleClick}>✎</span></div>
-            <div className="income-item-description">
-            <p className="flex-item">{income.category}</p>
-            <p className="flex-item">${income.amount}</p></div>
-            {visible && <EditIncome setIncome={setIncome} income={income} setVisible={setVisible}/>}
-        </div>
+        <>
+            <div className="income-item">
+                <div className="income-date-button">
+                <p>{incomeDate.toLocaleDateString()}</p>
+                <span className="edit-button" onClick={handleClick}>✎</span></div>
+                <div className="income-item-description">
+                <p className="flex-item">{income.category}</p>
+                <p className="flex-item">${income.amount}</p></div>
+            </div>
+            <div className={visible ? 'edit-background edit-background-visible' : 'edit-background'}></div>
+            <EditIncome visible={visible} setIncome={setIncome} income={income} setVisible={setVisible}/>
+        </>
     )
 }

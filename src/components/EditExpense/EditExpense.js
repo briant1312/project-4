@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as expenseAPI from '../../utilities/expenses-api'
 import './EditExpense.css'
 
-export default function EditIncome({expense, setExpenses, setVisible}) {
+export default function EditIncome({expense, setExpenses, setVisible, visible}) {
     const [editExpense, setEditExpense]= useState({
         name: expense.name,
         category: expense.category,
@@ -54,8 +54,8 @@ export default function EditIncome({expense, setExpenses, setVisible}) {
         setExpenses(expenses)
     }
     return(
-        <form className="Form">
-            {/* <label>Name</label> */}
+        <form className={visible ? 'Form edit-form-visible' : 'Form'}>
+            <span className="close" onClick={() => setVisible(false)}>x</span>
             <input 
                 className="edit-date"
                 onChange={handleChange}
@@ -72,7 +72,6 @@ export default function EditIncome({expense, setExpenses, setVisible}) {
                 placeholder='name'
                 value={editExpense.name}    
             />
-            {/* <label>Category</label> */}
             <select selected={editExpense.category} onChange={handleChange} value={editExpense.category} name='category'>
             <option value='food'>Food</option>
                 <option value='gas'>Gas</option>
@@ -81,7 +80,6 @@ export default function EditIncome({expense, setExpenses, setVisible}) {
                 <option value='entertainment'>Entertainment</option>
                 <option value='travel'>Travel</option>
             </select>
-            {/* <label>Amount</label> */}
             <input 
                 onChange={handleChange}
                 type='number'
@@ -89,7 +87,6 @@ export default function EditIncome({expense, setExpenses, setVisible}) {
                 placeholder='amount'
                 value={editExpense.amount}    
             />
-            {/* <label>Date</label> */}
             </div>
             <div className="edit-buttons">
             <button 

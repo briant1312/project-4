@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as incomeAPI from '../../utilities/income-api'
 import './EditIncome.css'
 
-export default function EditIncome({income, setIncome, setVisible}) {
+export default function EditIncome({income, setIncome, setVisible, visible}) {
     const [editIncome, setEditIncome]= useState({
         category: income.category,
         amount: income.amount,
@@ -51,7 +51,8 @@ export default function EditIncome({income, setIncome, setVisible}) {
         setIncome(incomes)
     }
     return(
-        <form className="income-Form">
+        <form className={visible ? 'income-Form income-Form-visible' : 'income-Form'}>
+            <span className="close" onClick={() => setVisible(false)}>x</span>
             <input 
                 className="edit-date"
                 onChange={handleChange}
@@ -61,13 +62,11 @@ export default function EditIncome({income, setIncome, setVisible}) {
                 value={editIncome.date}
             />
             <div className="edit-income-form-description">
-            {/* <label>Category</label> */}
             <select selected={editIncome.category} onChange={handleChange} value={editIncome.category} name='category'>
                 <option value='job'>Job</option>
                 <option value='investments'>Investments</option>
                 <option value='misc'>Misc</option>
             </select>
-            {/* <label>Amount</label> */}
             <input 
                 onChange={handleChange}
                 type='number'
@@ -75,7 +74,6 @@ export default function EditIncome({income, setIncome, setVisible}) {
                 placeholder='amount'
                 value={editIncome.amount}    
             />
-            {/* <label>Date</label> */}
             </div>
             <div className="edit-buttons">
             <button 
