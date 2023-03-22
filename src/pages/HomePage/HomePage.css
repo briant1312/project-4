@@ -48,11 +48,12 @@
         pointer-events: none;
         position: absolute;
         top: 3rem;
-        left: 1rem;
+        left: .5rem;
         padding-bottom: 10rem;
         background-color: rgba(0,184,255, 1);
         transform: translateX(-15rem);
         transition: all .5s;
+        font-size: 2rem;
     }
 
     .home-page .Nav.menu-visible {
