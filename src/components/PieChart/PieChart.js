@@ -20,7 +20,6 @@ ChartJS.register(
 export default function PieChart({expenses}) {
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth())
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
-  const [key, setKey] = useState(1)
   const [data, setData] = useState({
     labels: ['Gas', 'Bills', 'Food', 'Vehicle', 'Entertainment', 'Travel'],
     datasets: [
@@ -62,12 +61,11 @@ export default function PieChart({expenses}) {
     dataCopy.datasets[0].data = [0, 0, 0, 0, 0, 0]
     for(let expense of expenses){
       const date = new Date(expense.date)
-      if(date.getFullYear() == selectedYear && date.getMonth() == selectedMonth) {
+      if(date.getFullYear() === parseInt(selectedYear) && date.getMonth() === parseInt(selectedMonth)) {
         dataCopy.datasets[0].data[labelMap[expense.category]] += expense.amount
       }
     }
     setData(dataCopy)
-    setKey(prev => prev + 1)
   }, [selectedMonth, selectedYear, expenses])
 
   function handleYearChange(e) {
@@ -105,7 +103,7 @@ export default function PieChart({expenses}) {
               <option value='11'>December</option>
           </select>
 
-          <Pie key={key} data={data}/>
+          <Pie data={data}/>
       </div>
   )
     

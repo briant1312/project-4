@@ -18,7 +18,6 @@ ChartJS.register(
 
 export default function LineGraph({ expenses, income }) {
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
-    const [key, setKey] = useState(1000)
     const [data, setData] = useState({
         labels: [
             'January',
@@ -56,19 +55,18 @@ export default function LineGraph({ expenses, income }) {
       dataCopy.datasets[0].data =  [0,0,0,0,0,0,0,0,0,0,0,0]
       for(let inc of income){
         const date = new Date(inc.date)
-        if(date.getFullYear() == selectedYear) {
+        if(date.getFullYear() === parseInt(selectedYear)) {
           dataCopy.datasets[0].data[date.getMonth()] += inc.amount
         }
       }
       dataCopy.datasets[1].data = [0,0,0,0,0,0,0,0,0,0,0,0]
       for(let expense of expenses){
         const date = new Date(expense.date)
-        if(date.getFullYear() == selectedYear) {
+        if(date.getFullYear() === parseInt(selectedYear)) {
           dataCopy.datasets[1].data[date.getMonth()] += expense.amount
         }
       }
       setData(dataCopy)
-      setKey(prev => prev + 1)
     }, [selectedYear, expenses, income])
     
     function handleYearChange(e) {
@@ -86,7 +84,7 @@ export default function LineGraph({ expenses, income }) {
                 <option value='2023'>2023</option>
             </select>
 
-            <Line key={key} data={data} />
+            <Line data={data} />
         </div>
     )
 
