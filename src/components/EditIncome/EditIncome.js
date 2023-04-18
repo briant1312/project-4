@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as incomeAPI from '../../utilities/income-api'
 import './EditIncome.css'
 
@@ -6,8 +6,16 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
     const [editIncome, setEditIncome]= useState({
         category: income.category,
         amount: income.amount,
-        date: income.date
+        date: income.date.slice(0, 10)
     }) 
+
+    useEffect(() => {
+        setEditIncome({
+            category: income.category,
+            amount: income.amount,
+            date: income.date.slice(0, 10)
+        })
+    }, [income])
 
     function handleChange(event) {
         setEditIncome({
@@ -28,27 +36,22 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
     async function handleUpdate(event) {
         event.preventDefault()
         //Add to the DB
+        const date = new Date(editIncome.date)
+        date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
 
         setVisible(false)
 
         const editedIncome = {
             category: editIncome.category,
             amount: editIncome.amount,
-            date: editIncome.date
+            date: date
         }
-        const incomes = await incomeAPI.update(income._id,editedIncome)
-    
-
-        // //reset form data
-        setEditIncome(
-            {
-            category: income.category,
-            amount: income.amount,
-            date: income.date
-            }
-        )
-        
-        setIncome(incomes)
+        try {
+            const incomes = await incomeAPI.update(income._id,editedIncome)
+            setIncome(incomes)
+        } catch(e) {
+            console.error(e)
+        }
     }
     return(
         <form className={visible ? 'income-Form income-Form-visible' : 'income-Form'}>

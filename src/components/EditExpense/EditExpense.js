@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as expenseAPI from '../../utilities/expenses-api'
 import './EditExpense.css'
 
@@ -7,8 +7,17 @@ export default function EditIncome({expense, setExpenses, setVisible, visible}) 
         name: expense.name,
         category: expense.category,
         amount: expense.amount,
-        date: expense.date
+        date: expense.date.slice(0, 10)
     }) 
+
+    useEffect(() => {
+        setEditExpense({
+        name: expense.name,
+        category: expense.category,
+        amount: expense.amount,
+        date: expense.date.slice(0, 10)
+        })
+    }, [expense])
 
     function handleChange(event) {
         setEditExpense({
@@ -29,6 +38,8 @@ export default function EditIncome({expense, setExpenses, setVisible, visible}) 
 
     async function handleUpdate(event) {
         event.preventDefault()
+        const date = new Date(editExpense.date)
+        date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
 
         setVisible(false)
 
@@ -37,21 +48,14 @@ export default function EditIncome({expense, setExpenses, setVisible, visible}) 
             name: editExpense.name,
             category: editExpense.category,
             amount: editExpense.amount,
-            date: editExpense.date
+            date: date
         }
-        const expenses = await expenseAPI.update(expense._id,editedExpense)
-    
-
-        // //reset form data
-        setEditExpense(
-            {
-            name: expense.name,
-            category: expense.category,
-            amount: expense.amount,
-            date: expense.date
-            }
-        )
-        setExpenses(expenses)
+        try {
+            const expenses = await expenseAPI.update(expense._id,editedExpense)
+            setExpenses(expenses)
+        } catch(e) {
+            console.error(e)
+        }
     }
     return(
         <form className={visible ? 'Form edit-form-visible' : 'Form'}>
