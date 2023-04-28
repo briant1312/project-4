@@ -7,8 +7,8 @@ This app is used to have a convenient place to keep track of all of your bills a
 
 ![Auth Page](images/Auth.png)
 ![Home Page](images/Home.png)
-![Income Page](images/Income.png)
-![Expense Page](images/Expense.png)
+![Income Page](images/Expense.png)
+![Expense Page](images/Edit.png)
 
 ## ERD
 
