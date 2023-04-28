@@ -14,27 +14,31 @@
 @media screen and (max-width: 81.25em) {
 
     .home-page {
-      flex-wrap: wrap;
-      justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
-  
+
     .recent-expenses-container {
-      max-width: 70%;
-      margin: 0 auto 5rem auto;
+        max-width: 70%;
+        margin: 0 auto 5rem auto;
     }
-  
-    .home-page .line {
-      width: 55vw;
-      height: auto;
-    }
-  
-    .home-page .pie {
-      height: 45vh;
-    }
-  
+
     .graph-container {
-      margin-right: 3rem;
+        width: 65vw;
     }
+
+    .pie-chart {
+        width:35vw;
+    }
+
+    .home-page .line {
+        width: auto;
+    }
+
+    .home-page .pie {
+        width: auto;
+    }
+
 }
 
 @media screen and (max-width: 56.25em) {
@@ -50,7 +54,7 @@
         top: 3rem;
         left: .5rem;
         padding-bottom: 10rem;
-        background-color: rgba(0,184,255, 1);
+        background-color: rgba(0, 184, 255, 1);
         transform: translateX(-15rem);
         transition: all .5s;
         font-size: 2rem;
@@ -68,13 +72,21 @@
     }
 
     .home-page .line {
-        margin-bottom: 2rem;
         margin-inline: auto;
-        width: 30rem;
+        margin-top: 5rem;
     }
 
     .home-page .pie {
-        width: 40rem;
+        margin-inline: auto;
+    }
+
+    .pie-chart {
+        width: 15rem;
+    }
+
+    .line-graph {
+        width:23rem;
+        margin-top: 2.5rem;
     }
 
     .home-page {
@@ -82,21 +94,39 @@
     }
 
     .graph-container {
-        margin-right: 0;
+        margin-inline: .5rem;
+        width: 100%;
+        display: flex;
     }
 
     .recent-expenses-container {
-        width: 90%;
+        width: 100%;
         max-width: 100%;
+        margin-inline: 0;
     }
 }
 
-@media screen and (max-width: 40.63em) {
+@media screen and (max-width: 46.87em) {
+    .graph-container {
+        display: block;
+        margin-left: 3rem;
+    }
+
+    .line-graph {
+        margin-top: 0;
+        width: 80vw;
+    }
+
+    .pie-chart {
+        width: 60vw;
+    }
 
     .home-page .line {
-        width: 25rem;
+        margin-top: 1rem;
     }
+
 }
+
 
 @media screen and (max-width: 33.12em) {
 
@@ -104,35 +134,16 @@
         font-size: 90%;
     }
 
-    .home-page .line {
-        margin-top: 20rem;
-        width: 30rem;
+    .pie-chart {
+        width: 70vw;
+    }
+    
+    .line-graph {
+        width: 95vw;
     }
 
-    .home-page .pie {
-        width: 30rem;
-    }
-
-    .home-page .chia {
-        margin-left: 3rem;
-    }
-
-    .home-page .expense-item {
-        margin-inline: 0;
-    }
-}
-
-@media screen and (max-width: 25.38em) {
-
-    .home-page .line {
-        width: 21rem;
-    }
-
-    .home-page .pie {
-        width: 20rem;
-    }
-
-    .home-page .chia {
+    .graph-container {
         margin-left: 1rem;
     }
+
 }

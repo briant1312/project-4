@@ -1,10 +1,21 @@
 .pie{
-    height: 40vh;
-    width: 45vw;
-    margin: auto;
+    margin-left: 2rem;
     margin-top: 4rem;
 }
 
+.pie-chart {
+    width: 30vw;
+}
+
+canvas {
+    width: 100%;
+}
+
+
 .pie select {
     margin-inline: .5rem;
+}
+
+.pie-header-container h2 {
+    font-size: 1.5rem;
 }

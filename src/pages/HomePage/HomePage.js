@@ -13,12 +13,8 @@ function HomePage({userExpenses, income, user, setUser, visible, setVisible}) {
     <div className="home-page">
       <NavBar setVisible={setVisible} visible={visible} user={user} setUser={setUser}/>
       <div className="graph-container">
-        <div className="chia">
-          <PieChart expenses={userExpenses} className={'pie'}/>
-        </div>
-        <div className="line-graph">
-          <LineGraph income={income} expenses={userExpenses}/>
-        </div>
+        <PieChart expenses={userExpenses} className={'pie'}/>
+        <LineGraph income={income} expenses={userExpenses}/>
       </div>
       <div className="recent-expenses-container">
         <h3>Recent Transactions</h3>
