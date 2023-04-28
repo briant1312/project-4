@@ -75,7 +75,7 @@ export default function LineGraph({ expenses, income }) {
 
     return (
         <div className='line'>
-            <h1>Expenses vs Income</h1>
+            <h2>Expenses vs Income</h2>
             <label>Year</label>
             <select onChange={handleYearChange} value={selectedYear}>
                 <option value='2020'>2020</option>
@@ -84,7 +84,9 @@ export default function LineGraph({ expenses, income }) {
                 <option value='2023'>2023</option>
             </select>
 
-            <Line data={data} />
+            <div className="line-graph">
+              <Line data={data} />
+            </div>
         </div>
     )
 
