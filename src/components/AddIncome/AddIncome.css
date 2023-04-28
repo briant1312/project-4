@@ -43,3 +43,8 @@
     background-color: rgb(238, 108, 77);
     border: 2px solid rgb(61, 90, 128);
 }
+
+.error-message {
+    color: orangered;
+    text-align: center;
+}

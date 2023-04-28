@@ -7,7 +7,8 @@ export default function AddIncome({setIncome}) {
     const [newIncome, setNewIncome]= useState({
         category: 'job',
         amount: '',
-        date: ''
+        date: '',
+        error: ''
     })
 
     function handleChange(event) {
@@ -18,9 +19,16 @@ export default function AddIncome({setIncome}) {
     }
 
     async function handleCreateIncome(event) {
+        event.preventDefault()
+        if(!newIncome.amount || !newIncome.date) {
+            setNewIncome({
+                ...newIncome,
+                error: "Please fill out all fields"
+            })
+            return
+        }
         const date = new Date(newIncome.date)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
-        event.preventDefault()
         //Add to the DB
         const income = {
             category: newIncome.category,
@@ -35,7 +43,8 @@ export default function AddIncome({setIncome}) {
             {
                 category: 'job',
                 amount: '',
-                date: ''
+                date: '',
+                error: ''
             }
         )
         setIncome(incomes)
@@ -73,6 +82,7 @@ export default function AddIncome({setIncome}) {
                         onClick={handleCreateIncome}>
                         Add Income
                     </button>
+                    <p className="error-message">{newIncome.error}</p>
                 </div>
             </form>
         </div>

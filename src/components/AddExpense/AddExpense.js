@@ -8,7 +8,8 @@ export default function AddExpense({setExpenses}) {
         name: '',
         category:'food',
         amount: '',
-        date: ''
+        date: '',
+        error: ''
     })
 
     function handleChange(event) {
@@ -19,10 +20,16 @@ export default function AddExpense({setExpenses}) {
     }
 
     async function handleCreateExpense(event) {
+        event.preventDefault()
+        if(!newExpense.name || !newExpense.amount || !newExpense.date) {
+            setNewExpense({
+                ...newExpense,
+                error: "Please fill out all fields"
+            })
+        }
         const date = new Date(newExpense.date)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
 
-        event.preventDefault()
         //Add to the DB
         const expense = {
             name: newExpense.name,
@@ -40,6 +47,7 @@ export default function AddExpense({setExpenses}) {
                 category: 'food',
                 amount: '',
                 date: '',
+                error: ''
             }
         )
         setExpenses(expenses)
@@ -85,6 +93,7 @@ export default function AddExpense({setExpenses}) {
                         onClick={handleCreateExpense}>
                         Add Expense
                     </button>
+                    <p className="error-message">{newExpense.error}</p>
                 </div>
             </form>
         </div>

@@ -6,14 +6,16 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
     const [editIncome, setEditIncome]= useState({
         category: income.category,
         amount: income.amount,
-        date: income.date.slice(0, 10)
+        date: income.date.slice(0, 10),
+        error: ''
     }) 
 
     useEffect(() => {
         setEditIncome({
             category: income.category,
             amount: income.amount,
-            date: income.date.slice(0, 10)
+            date: income.date.slice(0, 10),
+            error: ''
         })
     }, [income])
 
@@ -26,6 +28,13 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
 
     async function handleDelete(event) {
         event.preventDefault()
+        if(editIncome.error !== "Press delete again to delete entry") {
+            setEditIncome({
+                ...editIncome,
+                error: "Press delete again to delete entry"
+            })
+            return
+        }
 
         setVisible(false)
         //Remove from DB
@@ -35,6 +44,13 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
 
     async function handleUpdate(event) {
         event.preventDefault()
+        if(!editIncome.amount || !editIncome.date) {
+            setEditIncome({
+                ...editIncome,
+                error: "Please fill out all fields"
+            })
+            return
+        }
         //Add to the DB
         const date = new Date(editIncome.date)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
@@ -53,9 +69,20 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
             console.error(e)
         }
     }
+
+    function closeModal() {
+        setVisible(false)
+        setEditIncome({
+            category: income.category,
+            amount: income.amount,
+            date: income.date.slice(0, 10),
+            error: ''
+        })
+    }
+
     return(
         <form className={visible ? 'income-Form income-Form-visible' : 'income-Form'}>
-            <span className="close" onClick={() => setVisible(false)}>x</span>
+            <span className="close" onClick={closeModal}>x</span>
             <input 
                 className="edit-date"
                 onChange={handleChange}
@@ -79,15 +106,16 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
             />
             </div>
             <div className="edit-buttons">
-            <button 
-            onClick={handleUpdate}>
-                Update Income
+                <button 
+                    onClick={handleUpdate}>
+                    Update Income
                 </button>
-            <button 
-            onClick={handleDelete}>
-                Delete Income
+                <button 
+                    onClick={handleDelete}>
+                    Delete Income
                 </button>
-                </div>
+            </div>
+            <p className="error-message">{editIncome.error}</p>
         </form>
     )
 }
