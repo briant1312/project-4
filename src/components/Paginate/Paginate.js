@@ -49,7 +49,7 @@ export default function Paginate({pagenatedItems, numPerPage, setDisplayed}) {
     }
 
     useEffect(() => {
-        setSelectedPage(1)
+        getSpecificPage(selectedPage)
     }, [pagenatedItems])
 
   return (

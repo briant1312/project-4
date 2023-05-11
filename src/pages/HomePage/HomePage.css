@@ -50,7 +50,7 @@
     .home-page .Nav {
         opacity: 0;
         pointer-events: none;
-        position: absolute;
+        position: fixed;
         top: 3rem;
         left: .5rem;
         padding-bottom: 10rem;
@@ -58,6 +58,7 @@
         transform: translateX(-15rem);
         transition: all .5s;
         font-size: 2rem;
+        z-index: 10;
     }
 
     .home-page .Nav.menu-visible {
