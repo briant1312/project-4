@@ -1,6 +1,5 @@
 import sendRequest from "./users-api"
-// const BASE_URL = "/api/expenses"
-const BASE_URL = "https://expense-tracker-server-6vdh.onrender.com/api/expenses"
+const BASE_URL = process.env.REACT_APP_BASE_URL + "expenses"
 
 export async function show() {
     return sendRequest(BASE_URL, "GET")
