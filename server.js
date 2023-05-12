@@ -16,12 +16,12 @@ const PORT = process.env.PORT || 3001
 app.use(logger('dev'))
 app.use(express.json())
 // app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }))
-app.use(function(req, res, next) {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
-    res.setHeader("Access-Control-Allow-Methods", "POST, PATCH, GET, DELETE")
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.setHeader("Access-Control-Allow-Origin", "*")
+//     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
+//     res.setHeader("Access-Control-Allow-Methods", "POST, PATCH, GET, DELETE")
+//     next();
+// });
 
 app.use(require('./config/checkToken'))
 
