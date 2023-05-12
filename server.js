@@ -17,6 +17,7 @@ app.use(logger('dev'))
 app.use(express.json())
 // app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }))
 app.use(cors({ origin: false }))
+app.options('*', cors())
 
 app.use(require('./config/checkToken'))
 
