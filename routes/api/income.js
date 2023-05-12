@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const cors = require('cors')
 
+const opts = { origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }
+
 const incomeCtrl = require('../../controllers/api/income')
 const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
