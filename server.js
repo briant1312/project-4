@@ -16,7 +16,8 @@ const PORT = process.env.PORT || 3001
 app.use(logger('dev'))
 app.use(express.json())
 // app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }))
-app.use(cors({ origin: "https://expense-tracker-client-99oc.onrender.com"}))
+// app.use(cors({ origin: "https://expense-tracker-client-99oc.onrender.com"}))
+app.use(cors())
 
 app.use(require('./config/checkToken'))
 
