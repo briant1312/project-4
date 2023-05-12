@@ -15,13 +15,14 @@ const PORT = process.env.PORT || 3001
 
 app.use(logger('dev'))
 app.use(express.json())
-// app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }))
 const corsOptions = {
-    origin: '*',
-    credentials: true,
-    optionSuccessStatus: 200
-}
-app.use(cors(corsOptions))
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": true,
+    "optionsSuccessStatus": 204
+  }
+// app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }))
+
 
 
 app.use(require('./config/checkToken'))
