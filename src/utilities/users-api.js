@@ -15,7 +15,6 @@ export default async function sendRequest(url, method='GET', payload=null) {
     if(payload) {
         options.headers = { 'Content-Type': 'application/json'}
         options.body = JSON.stringify(payload)
-        options.mode = 'no-cors'
     }
     const token = getToken()
     if(token) {
