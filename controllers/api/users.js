@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 
 function createJWT(user) {
     return jwt.sign(
-        { user },
+        user ,
         process.env.SECRET,
         { expiresIn: '24h' }
     )
@@ -15,7 +15,6 @@ async function create(req, res, next) {
     try {
         const user = await User.create(req.body)
         const token = createJWT({ 
-            name: user.name,
             username: user.username,
             password: user.password
         })
