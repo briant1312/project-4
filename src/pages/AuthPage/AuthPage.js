@@ -3,7 +3,7 @@ import SignUpForm from "../../components/SignUpForm/SignUpForm"
 import LoginForm from "../../components/LoginForm/LoginForm.js"
 import "./AuthPage.css"
 
-export default function AuthPage({ setUser }) {
+export default function AuthPage({ setUser, setExpenses, setIncome }) {
     
     const [showSignUp, setShowSignUp] = useState(false)
     
@@ -17,7 +17,7 @@ export default function AuthPage({ setUser }) {
             {showSignUp ? (
                 <SignUpForm setUser={setUser} />
             ) : (
-                <LoginForm setUser={setUser} />
+                <LoginForm setExpenses={setExpenses} setIncome={setIncome} setUser={setUser} />
             )}
             {showSignUp ? 
                 <>

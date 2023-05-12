@@ -6,6 +6,9 @@ import { getUser } from "../../utilities/users-service"
 import HomePage from "../HomePage/HomePage";
 import IncomePage from "../IncomePage/IncomePage";
 import ExpensePage from "../ExpensePage/ExpensePage";
+import { show as showExpenses } from "../../utilities/expenses-api"
+import { show as showIncomes } from "../../utilities/income-api"
+
 
 function App() {
   const [user, setUser] = useState(getUser())
@@ -14,14 +17,18 @@ function App() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const user = getUser()
-    if(user) {
-      setExpenses(user.expenses)
-      setIncome(user.income)
-    } else {
-      setExpenses([])
-      setIncome([])
+    async function setup() {
+      if(user === null) return
+      try {
+        const expenses = await showExpenses()
+        const incomes = await showIncomes()
+        setIncome(incomes)
+        setExpenses(expenses)
+      } catch (e){
+        console.error(e)
+      }
     }
+    setup()
   }, [user])
 
   function toggleMenu() {
@@ -45,6 +52,7 @@ function App() {
                     visible={visible}
                     setVisible={setVisible}
                     setExpenses={setExpenses} 
+                    setIncome={setIncome} 
                     userExpenses={expenses}
                     income={income}
                     user={user}
@@ -55,6 +63,7 @@ function App() {
                   visible={visible}
                   setVisible={setVisible}
                   setIncome={setIncome} 
+                  setExpenses={setExpenses} 
                   userIncome={income}
                   user={user}
                   setUser={setUser}/>} 
@@ -64,6 +73,7 @@ function App() {
                     visible={visible}
                     setVisible={setVisible}
                     setExpenses={setExpenses} 
+                    setIncome={setIncome} 
                     userExpenses={expenses}
                     user={user}
                     setUser={setUser}/>} 

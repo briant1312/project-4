@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { logIn } from "../../utilities/users-service"
+import { show as showExpenses } from "../../utilities/expenses-api"
+import { show as showIncomes } from "../../utilities/income-api"
 import "./LoginForm.css"
 
 export default function LoginForm({setUser, setIncome, setExpenses}) {
@@ -22,8 +24,10 @@ export default function LoginForm({setUser, setIncome, setExpenses}) {
             e.preventDefault()
             const user = await logIn(credentials)
             setUser(user)
-            setIncome(user.income)
-            setExpenses(user.expenses)
+            const expenses = await showExpenses()
+            const incomes = await showIncomes()
+            setIncome(incomes)
+            setExpenses(expenses)
         } catch {
             setError('Error Logging In')
         }

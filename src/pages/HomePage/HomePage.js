@@ -4,14 +4,14 @@ import '../../components/ExpenseItem/ExpenseItem.css'
 import './HomePage.css'
 import NavBar from '../../components/NavBar/NavBar'
 
-function HomePage({userExpenses, income, user, setUser, visible, setVisible}) {
+function HomePage({userExpenses, income, user, setUser, visible, setVisible, setExpenses, setIncome}) {
 
   const sumVar = userExpenses.slice(0,5)
 
   return (
     
     <div className="home-page">
-      <NavBar setVisible={setVisible} visible={visible} user={user} setUser={setUser}/>
+      <NavBar setExpenses={setExpenses} setIncome={setIncome} setVisible={setVisible} visible={visible} user={user} setUser={setUser}/>
       <div className="graph-container">
         <PieChart expenses={userExpenses} className={'pie'}/>
         <LineGraph income={income} expenses={userExpenses}/>

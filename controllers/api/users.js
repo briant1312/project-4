@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 
 function createJWT(user) {
     return jwt.sign(
-        user ,
+        { user },
         process.env.SECRET,
         { expiresIn: '24h' }
     )
@@ -15,8 +15,11 @@ async function create(req, res, next) {
     try {
         const user = await User.create(req.body)
         const token = createJWT({ 
+            name: user.name,
             username: user.username,
-            password: user.password
+            password: user.password,
+            _id: user._id,
+            lastLogin: user.lastLogin
         })
         res.json(token)
     } catch (error) {
@@ -32,7 +35,13 @@ async function logIn(req, res, next) {
             return
         }
         if(bcrypt.compareSync(req.body.password, user.password)) {
-            res.json(createJWT(user))
+            res.json(createJWT({ 
+                name: user.name,
+                username: user.username,
+                password: user.password,
+                _id: user._id,
+                lastLogin: user.lastLogin
+            }))
         } else {
             res.sendStatus(422)
             return
