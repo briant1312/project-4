@@ -1,5 +1,6 @@
 import { getToken } from "./users-service"
-const BASE_URL = process.env.REACT_APP_BASE_URL + "users"
+// const BASE_URL = "/api/users"
+const BASE_URL = "https://expense-tracker-server-6vdh.onrender.com/api/users"
 
 export async function signUp(userData) {
     return sendRequest(BASE_URL, 'POST', userData)

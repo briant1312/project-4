@@ -82,7 +82,7 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
 
     return(
         <form className={visible ? 'income-Form income-Form-visible' : 'income-Form'}>
-            <span className="close" onClick={closeModal}>&times;</span>
+            <span className="close" onClick={closeModal}>x</span>
             <input 
                 className="edit-date"
                 onChange={handleChange}

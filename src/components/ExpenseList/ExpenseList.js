@@ -8,7 +8,7 @@ export default function ExpenseList({expenses, setExpenses}) {
 
     useEffect(() => {
         setDisplayed(expenses.slice(0,5))
-    }, [])
+    }, [expenses])
 
     return(
         <div className="expense-list">
