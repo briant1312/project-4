@@ -34,5 +34,6 @@ app.use('/api/income', require('./routes/api/income'))
 // })
 
 app.listen(PORT, () => {
+    console.log('origin', process.env.CLIENT_ORIGIN)
     console.log(`Listening on port ${PORT}`)
 })
