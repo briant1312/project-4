@@ -14,7 +14,11 @@ async function create(req, res, next) {
     // just for right now I want to see if this is connected
     try {
         const user = await User.create(req.body)
-        const token = createJWT(user)
+        const token = createJWT({ 
+            name: user.name,
+            username: user.username,
+            password: user.password
+        })
         res.json(token)
     } catch (error) {
         res.status(400).json(error)
