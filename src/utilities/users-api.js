@@ -20,6 +20,7 @@ export default async function sendRequest(url, method='GET', payload=null) {
     if(token) {
         options.headers = options.headers || {}
         options.headers.Authorization = `Bearer ${token}`
+        options.headers.mode = 'no-cors'
     }
     const res = await fetch(url, options)
     if(res.ok) {
