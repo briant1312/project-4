@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001
 
 app.use(logger('dev'))
 app.use(express.json())
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }))
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000`, credentials: true }))
 
 app.use(require('./config/checkToken'))
 
@@ -34,6 +34,5 @@ app.use('/api/income', require('./routes/api/income'))
 // })
 
 app.listen(PORT, () => {
-    console.log('origin', process.env.CLIENT_ORIGIN)
     console.log(`Listening on port ${PORT}`)
 })
