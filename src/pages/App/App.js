@@ -35,7 +35,7 @@ function App() {
         <div className="app-page">
           <div onClick={toggleMenu} className="menu-icon">
             {visible ? 
-            <span className="closed">x</span> :
+            <span className="closed">&times;</span> :
             <span className="open"></span> 
             }
           </div>

@@ -8,7 +8,7 @@ export default function IncomeList({incomeArray, setIncome}) {
 
     useEffect(() => {
         setDisplayed(incomeArray.slice(0,5))
-    }, [incomeArray])
+    }, [])
 
 
     return(

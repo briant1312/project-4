@@ -5,6 +5,7 @@
 }
 
 .paginate-container {
+    font-size: 1.2rem;
     margin-top: 1rem;
     display: flex;
     gap: 1rem;
