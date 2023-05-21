@@ -1,6 +1,7 @@
 import { useState } from "react"
 import EditExpense from "../EditExpense/EditExpense"
 import './ExpenseItem.css'
+import { FaEdit } from "react-icons/fa"
 
 export default function ExpenseItem({expense, setExpenses}) {
     const [visible, setVisible] = useState(false)
@@ -16,7 +17,7 @@ export default function ExpenseItem({expense, setExpenses}) {
             <div className="expense-item" >
                 <div className="date-and-button" >
                 <p>{expenseDate.toLocaleDateString()}</p>
-                <span className="edit-button" onClick={handleClick}>✎</span>
+                <span onClick={handleClick}><FaEdit className="edit-button"/></span>
                 </div>
                 <div className="expense-item-description">
                 <p className="flex-item">{expense.name}</p>
