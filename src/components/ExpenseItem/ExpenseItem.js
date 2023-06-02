@@ -26,7 +26,6 @@ export default function ExpenseItem({expense, setExpenses}) {
                 </div>
                 
             </div>
-            <div className={visible ? 'edit-background edit-background-visible' : 'edit-background'}></div>
             <EditExpense visible={visible} expense={expense} setExpenses={setExpenses} setVisible={setVisible}/>
         </>
     )

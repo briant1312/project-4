@@ -80,42 +80,45 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
         })
     }
 
-    return(
-        <form className={visible ? 'income-Form income-Form-visible' : 'income-Form'}>
-            <span className="close" onClick={closeModal}>&times;</span>
-            <input 
-                className="edit-date"
-                onChange={handleChange}
-                type='date'
-                name='date'
-                placeholder={editIncome.date}
-                value={editIncome.date}
-            />
-            <div className="edit-income-form-description">
-            <select selected={editIncome.category} onChange={handleChange} value={editIncome.category} name='category'>
-                <option value='job'>Job</option>
-                <option value='investments'>Investments</option>
-                <option value='misc'>Misc</option>
-            </select>
-            <input 
-                onChange={handleChange}
-                type='number'
-                name='amount'
-                placeholder='amount'
-                value={editIncome.amount}    
-            />
-            </div>
-            <div className="edit-buttons">
-                <button 
-                    onClick={handleUpdate}>
-                    Update Income
-                </button>
-                <button 
-                    onClick={handleDelete}>
-                    Delete Income
-                </button>
-            </div>
-            <p className="error-message">{editIncome.error}</p>
-        </form>
+    return (
+        <>
+            <div onClick={closeModal} className={visible ? 'edit-background edit-background-visible' : 'edit-background'}></div>
+            <form className={visible ? 'income-Form income-Form-visible' : 'income-Form'}>
+                <span className="close" onClick={closeModal}>&times;</span>
+                <input
+                    className="edit-date"
+                    onChange={handleChange}
+                    type='date'
+                    name='date'
+                    placeholder={editIncome.date}
+                    value={editIncome.date}
+                />
+                <div className="edit-income-form-description">
+                    <select selected={editIncome.category} onChange={handleChange} value={editIncome.category} name='category'>
+                        <option value='job'>Job</option>
+                        <option value='investments'>Investments</option>
+                        <option value='misc'>Misc</option>
+                    </select>
+                    <input
+                        onChange={handleChange}
+                        type='number'
+                        name='amount'
+                        placeholder='amount'
+                        value={editIncome.amount}
+                    />
+                </div>
+                <div className="edit-buttons">
+                    <button
+                        onClick={handleUpdate}>
+                        Update Income
+                    </button>
+                    <button
+                        onClick={handleDelete}>
+                        Delete Income
+                    </button>
+                </div>
+                <p className="error-message">{editIncome.error}</p>
+            </form>
+        </>
     )
 }

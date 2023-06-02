@@ -85,52 +85,55 @@ export default function EditIncome({expense, setExpenses, setVisible, visible}) 
         })
     }
 
-    return(
-        <form className={visible ? 'Form edit-form-visible' : 'Form'}>
-            <span className="close" onClick={closeModal}>&times;</span>
-            <input 
-                className="edit-date"
-                onChange={handleChange}
-                type='date'
-                name='date'
-                placeholder='date'
-                value={editExpense.date}
-            />
-            <div className="edit-form-description">
-            <input 
-                onChange={handleChange}
-                type='text'
-                name='name'
-                placeholder='name'
-                value={editExpense.name}    
-            />
-            <select selected={editExpense.category} onChange={handleChange} value={editExpense.category} name='category'>
-            <option value='food'>Food</option>
-                <option value='gas'>Gas</option>
-                <option value='bills'>Bills</option>
-                <option value='vehicle'>Vehicle</option>
-                <option value='entertainment'>Entertainment</option>
-                <option value='travel'>Travel</option>
-            </select>
-            <input 
-                onChange={handleChange}
-                type='number'
-                name='amount'
-                placeholder='amount'
-                value={editExpense.amount}    
-            />
-            </div>
-            <div className="edit-buttons">
-                <button 
-                    onClick={handleUpdate}>
-                    Update Expense
-                </button>
-                <button 
-                    onClick={handleDelete}>
-                    Delete Expense
-                </button>
-            </div>
-            <p className="error-message">{editExpense.error}</p>
-        </form>
+    return (
+        <>
+            <div onClick={closeModal} className={visible ? 'edit-background edit-background-visible' : 'edit-background'}></div>
+            <form className={visible ? 'Form edit-form-visible' : 'Form'}>
+                <span className="close" onClick={closeModal}>&times;</span>
+                <input
+                    className="edit-date"
+                    onChange={handleChange}
+                    type='date'
+                    name='date'
+                    placeholder='date'
+                    value={editExpense.date}
+                />
+                <div className="edit-form-description">
+                    <input
+                        onChange={handleChange}
+                        type='text'
+                        name='name'
+                        placeholder='name'
+                        value={editExpense.name}
+                    />
+                    <select selected={editExpense.category} onChange={handleChange} value={editExpense.category} name='category'>
+                        <option value='food'>Food</option>
+                        <option value='gas'>Gas</option>
+                        <option value='bills'>Bills</option>
+                        <option value='vehicle'>Vehicle</option>
+                        <option value='entertainment'>Entertainment</option>
+                        <option value='travel'>Travel</option>
+                    </select>
+                    <input
+                        onChange={handleChange}
+                        type='number'
+                        name='amount'
+                        placeholder='amount'
+                        value={editExpense.amount}
+                    />
+                </div>
+                <div className="edit-buttons">
+                    <button
+                        onClick={handleUpdate}>
+                        Update Expense
+                    </button>
+                    <button
+                        onClick={handleDelete}>
+                        Delete Expense
+                    </button>
+                </div>
+                <p className="error-message">{editExpense.error}</p>
+            </form>
+        </>
     )
 }

@@ -22,7 +22,6 @@ export default function IncomeItem({income, setIncome}) {
                 <p className="flex-item">{income.category}</p>
                 <p className="flex-item">${income.amount}</p></div>
             </div>
-            <div className={visible ? 'edit-background edit-background-visible' : 'edit-background'}></div>
             <EditIncome visible={visible} setIncome={setIncome} income={income} setVisible={setVisible}/>
         </>
     )
