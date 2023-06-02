@@ -29,9 +29,9 @@ app.use('/api/users', require('./routes/api/users'))
 app.use('/api/expenses', require('./routes/api/expenses'))
 app.use('/api/income', require('./routes/api/income'))
 
-// app.get('/*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'build', 'index.html'))
-// })
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
