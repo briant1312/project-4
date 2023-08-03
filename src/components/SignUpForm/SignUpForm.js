@@ -3,7 +3,6 @@ import { signUp } from "../../utilities/users-service"
 import "./SignUpForm.css"
 
 export default class SignUpForm extends Component{
-    // state is just a POJO
     state = {
         name: '',
         username: '',
@@ -14,7 +13,6 @@ export default class SignUpForm extends Component{
 
     handleChange = (event) => {
         this.setState({
-            // name, email, password, confirm
             [event.target.name]: event.target.value,
             error: ''
         })
@@ -22,30 +20,38 @@ export default class SignUpForm extends Component{
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        // alert(JSON.stringify(this.state))
+        if(this.state.password !== this.state.confirm) {
+            this.setState({
+                error: "passwords do not match"
+            })
+            return
+        }
+        if(this.state.password.length < 5) {
+            this.setState({
+                error: "password must be at least 5 characters"
+            })
+            return
+        }
         try {
-            // taking the state and making a copy of the state and
-            // assigning it to formData var
             const formData = {...this.state}
             delete formData.error
             delete formData.confirm
 
-            // wait for a response back from the server
             const user = await signUp(formData)
             this.props.setUser(user)
              
 
         } catch (error){
-            console.error(error)
+            if(error.message === "Failed to fetch") {
+                error.message = "server is currently unavailable"
+            }
             this.setState({
-                error: "Sign up failed = Try again later"
+                error: error.message
             })
         }
     }
 
     render() {
-        const disabled = this.state.password !== this.state.confirm
-
         return (
             <div className="auth-container">
                 <form autoComplete="off" onSubmit={this.handleSubmit} className="form-container">
@@ -83,7 +89,7 @@ export default class SignUpForm extends Component{
                         onChange={this.handleChange}
                         required 
                     />
-                    <button type="submit" disabled={disabled}>Sign Up</button>
+                    <button type="submit">Sign Up</button>
                 </form>
                 <p className="error-message">{this.state.error}</p>
             </div>

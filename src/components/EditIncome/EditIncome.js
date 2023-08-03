@@ -37,9 +37,12 @@ export default function EditIncome({income, setIncome, setVisible, visible}) {
         }
 
         setVisible(false)
-        //Remove from DB
-        const incomes = await incomeAPI.remove(income._id)
-        setIncome(incomes)
+        try {
+            const incomes = await incomeAPI.remove(income._id)
+            setIncome(incomes)
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     async function handleUpdate(event) {
