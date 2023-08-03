@@ -29,25 +29,27 @@ export default function AddIncome({setIncome}) {
         }
         const date = new Date(newIncome.date)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
-        //Add to the DB
         const income = {
             category: newIncome.category,
             amount: newIncome.amount,
             date: date
         }
-        const incomes = await incomeAPI.create(income)
-    
+        try {
+            const incomes = await incomeAPI.create(income)
 
-        // //reset form data
-        setNewIncome(
-            {
-                category: 'job',
-                amount: '',
-                date: '',
-                error: ''
-            }
-        )
-        setIncome(incomes)
+            setNewIncome(
+                {
+                    category: 'job',
+                    amount: '',
+                    date: '',
+                    error: ''
+                }
+            )
+            setIncome(incomes)
+        } catch (err) {
+            console.error(err)
+        }
+    
     }
 
     return(

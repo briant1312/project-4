@@ -40,9 +40,13 @@ export default function EditIncome({expense, setExpenses, setVisible, visible}) 
 
         setVisible(false)
 
-        //Remove from DB
-        const expenses = await expenseAPI.remove(expense._id)
-        setExpenses(expenses)
+        try {
+            const expenses = await expenseAPI.remove(expense._id)
+            setExpenses(expenses)
+
+        } catch (error) {
+            console.error(error.messages)
+        }
     }
 
     async function handleUpdate(event) {

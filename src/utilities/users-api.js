@@ -28,7 +28,8 @@ export default async function sendRequest(url, method='GET', payload=null) {
             return res.json()
         }
     } else {
-        throw new Error("Bad Request")
+        const error = await res.json();
+        throw new Error(error)
     }
 }
 

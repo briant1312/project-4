@@ -30,27 +30,28 @@ export default function AddExpense({setExpenses}) {
         const date = new Date(newExpense.date)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
 
-        //Add to the DB
         const expense = {
             name: newExpense.name,
             category: newExpense.category,
             amount: newExpense.amount,
             date: date,
         }
-        const expenses = await expenseAPI.create(expense)
-    
+        try {
+            const expenses = await expenseAPI.create(expense)
 
-        // //reset form data
-        setNewExpense(
-            {
-                name:'',
-                category: 'food',
-                amount: '',
-                date: '',
-                error: ''
-            }
-        )
-        setExpenses(expenses)
+            setNewExpense(
+                {
+                    name:'',
+                    category: 'food',
+                    amount: '',
+                    date: '',
+                    error: ''
+                }
+            )
+            setExpenses(expenses)
+        } catch (err) {
+            console.error(err.message)
+        }
     }
 
     return(

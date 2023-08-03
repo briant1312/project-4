@@ -28,8 +28,11 @@ export default function LoginForm({setUser, setIncome, setExpenses}) {
             const incomes = await showIncomes()
             setIncome(incomes)
             setExpenses(expenses)
-        } catch {
-            setError('Error Logging In')
+        } catch (err) {
+            if(err.message === "Failed to fetch") {
+                err.message = "server is currently unavailable"
+            }
+            setError(err.message)
         }
     }
 
